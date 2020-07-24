@@ -88,7 +88,7 @@ class EditComp extends Component {
                         <FormGroup>
                             <Row>
                                 <Col>
-                                    <Button type="button" onClick = { () => this.ubahMahasiswa(this.state.id_mahasiswa)}>Update</Button>
+                                    <Button color = "success" type="button" onClick = { () => this.ubahMahasiswa(this.state.id_mahasiswa)}>Update</Button>
                                 </Col>
                             </Row>
                         </FormGroup>
