@@ -17,7 +17,7 @@ const NavbarComp = (props) => {
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
 
-    const {value, setValue} = useContext(CartContext)
+    const { value, setValue } = useContext(CartContext)
 
     return (
         <div>
@@ -56,13 +56,13 @@ const NavbarComp = (props) => {
 
                         <NavItem>
                             <NavLink to="/reducer" className="nav-link">Reducer</NavLink>
-                        </NavItem>  
+                        </NavItem>
                     </Nav>
-                    
+
                     <NavbarText>
                         <Button color="danger">
                             <i className="fa fa-shopping-cart"></i>
-                            <span className = "badge badge-light">{value}</span>
+                            <span className="badge badge-light">{value}</span>
                         </Button>
                     </NavbarText>
                 </Collapse>
