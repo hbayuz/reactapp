@@ -31,9 +31,9 @@ function HooksReducer() {
                     <h3>Rp. 1.570.000</h3>
                     <p>Jumlah</p>
                     <Row>
-                        <Col><Button onClick={() => dispatch('tambah')} color="success">-</Button></Col>
+                        <Col><Button onClick={() => dispatch('tambah')} color="success">+</Button></Col>
                         <Col>{count}</Col>
-                        <Col><Button onClick={() => dispatch('kurang')} color="success">+</Button></Col>
+                        <Col><Button onClick={() => dispatch('kurang')} color="success">-</Button></Col>
                     </Row>
                 </Col>
             </Row>
