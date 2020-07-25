@@ -1,5 +1,7 @@
 import React from 'react';
 import { Jumbotron, Button } from 'reactstrap';
+import { useContext } from 'react';
+import { CartContext } from '../../CartContext';
 
 const HomePage = (props) => {
     return (

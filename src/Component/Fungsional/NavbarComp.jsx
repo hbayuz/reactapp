@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {
     Collapse,
     Navbar,
@@ -6,14 +6,19 @@ import {
     NavbarBrand,
     Nav,
     NavItem,
-    NavLink,
-    NavbarText
+    NavbarText,
+    Button
 } from 'reactstrap';
+
+import { NavLink } from 'react-router-dom'
+import { CartContext } from '../../CartContext';
 
 const NavbarComp = (props) => {
     const [isOpen, setIsOpen] = useState(false);
-
     const toggle = () => setIsOpen(!isOpen);
+
+    const {value, setValue} = useContext(CartContext)
+
     return (
         <div>
             <Navbar color="light" light expand="md">
@@ -22,30 +27,40 @@ const NavbarComp = (props) => {
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="mr-auto" navbar>
                         <NavItem>
-                            <NavLink href="/">Home</NavLink>
+                            <NavLink to="/" className="nav-link">Home</NavLink>
                         </NavItem>
 
                         <NavItem>
-                            <NavLink href="/about">About</NavLink>
+                            <NavLink to="/about" className="nav-link">About</NavLink>
                         </NavItem>
 
                         <NavItem>
-                            <NavLink href="/mahasiswa">Mahasiswa</NavLink>
+                            <NavLink to="/mahasiswa" className="nav-link">Mahasiswa</NavLink>
                         </NavItem>
 
                         <NavItem>
-                            <NavLink href="/kelas">Class</NavLink>
+                            <NavLink to="/kelas" className="nav-link">Class</NavLink>
                         </NavItem>
 
                         <NavItem>
-                            <NavLink href="/hooks">Hooks</NavLink>
+                            <NavLink to="/hooks" className="nav-link">Hooks</NavLink>
                         </NavItem>
 
                         <NavItem>
-                            <NavLink href="/useeffect">UseEffect</NavLink>
+                            <NavLink to="/useeffect" className="nav-link">UseEffect</NavLink>
                         </NavItem>
+
+                        <NavItem>
+                            <NavLink to="/produk" className="nav-link">Product</NavLink>
+                        </NavItem>   
                     </Nav>
-                    <NavbarText>Simple Text</NavbarText>
+                    
+                    <NavbarText>
+                        <Button color="danger">
+                            <i className="fa fa-shopping-cart"></i>
+                            <span className = "badge badge-light">{value}</span>
+                        </Button>
+                    </NavbarText>
                 </Collapse>
             </Navbar>
         </div>
