@@ -52,7 +52,11 @@ const NavbarComp = (props) => {
 
                         <NavItem>
                             <NavLink to="/produk" className="nav-link">Product</NavLink>
-                        </NavItem>   
+                        </NavItem>
+
+                        <NavItem>
+                            <NavLink to="/reducer" className="nav-link">Reducer</NavLink>
+                        </NavItem>  
                     </Nav>
                     
                     <NavbarText>
