@@ -19,6 +19,8 @@ import LoginComp from './Component/LoginComp';
 import HomeComp from './Component/HomeComp';
 import RegisterComp from './Component/RegisterComp';
 import DetailComp from './Component/Fungsional/DetailComp';
+import BarangComp from './Component/BarangComp';
+import EditBarangComp from './Component/EditBarangComp';
 
 // import DetailComp from './Component/Fungsional/DetailComp';
 
@@ -124,7 +126,8 @@ function App() {
           <Route exact path="/homepage" component={HomeComp} />
           <Route exact path="/register" component={RegisterComp} />
           <Route exact path="/about" component={About} />
-          <Route exact path="/detail/:id" component={DetailComp} />
+          <Route exact path="/barang" component={BarangComp} />
+          <Route exact path="/barang/edit" component={EditBarangComp} />
         </AuthContext.Provider>
         
         <Route exact path="/mahasiswa" component={ListComp} />

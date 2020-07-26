@@ -5,15 +5,15 @@ import { Container, Col, Row, Form, FormGroup, Alert, Label, Input, Button, } fr
 
 const api = "http://localhost:3001"
 
-class EditComp extends Component {
+class EditBarangComp extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            id_mahasiswa: this.props.location.state.id_mahasiswa,
-            nim: this.props.location.state.nim,
-            nama: this.props.location.state.nama,
-            jurusan: this.props.location.state.jurusan,
+            id_barang: this.props.location.state.id_barang,
+            nama: this.props.location.state.nama_barang,
+            harga: this.props.location.state.harga_barang,
+            keterangan: this.props.location.state.keterangan,
             response: '',
             display: 'none'
         }
@@ -23,15 +23,15 @@ class EditComp extends Component {
         this.setState({[e.target.name] : e.target.value})
     }
 
-    ubahMahasiswa = (idmahasiswa) => {
+    ubahBarang = (idbarang) => {
         const data = qs.stringify({
-            id_mahasiswa: idmahasiswa, 
-            nim: this.state.nim,
-            nama: this.state.nama,
-            jurusan: this.state.jurusan
+            id_barang: idbarang, 
+            nama: this.state.nama_barang,
+            harga: this.state.harga_barang,
+            keterangan: this.state.keterangan
         });
 
-        axios.put(api + '/ubah', data)
+        axios.put(api + '/ubahbarang', data)
         .then(json => {
             if(json === 200){
                 this.setState({
@@ -57,16 +57,7 @@ class EditComp extends Component {
                 </Alert>
                 <Form className="form">
                     <Col>
-                        <Label>NIM</Label>
-                        <FormGroup>
-                            <Row>
-                                <Col>
-                                    <Input type="text" name="nim" value={this.state.nim} onChange = {this.handleChange} placeholder="Masukkan NIM" />
-                                </Col>
-                            </Row>
-                        </FormGroup>
-
-                        <Label>Nama</Label>
+                        <Label>Nama Barang</Label>
                         <FormGroup>
                             <Row>
                                 <Col>
@@ -75,11 +66,20 @@ class EditComp extends Component {
                             </Row>
                         </FormGroup>
 
-                        <Label>Jurusan</Label>
+                        <Label>Harga Barang</Label>
                         <FormGroup>
                             <Row>
                                 <Col>
-                                    <Input type="text" name="jurusan" value={this.state.jurusan} onChange = {this.handleChange} placeholder="Masukkan Jurusan" />
+                                    <Input type="text" name="harga" value={this.state.harga} onChange = {this.handleChange} placeholder="Masukkan Harga Barang" />
+                                </Col>
+                            </Row>
+                        </FormGroup>
+
+                        <Label>Keterangan</Label>
+                        <FormGroup>
+                            <Row>
+                                <Col>
+                                    <Input type="text" name="keterangan" value={this.state.keterangan} onChange = {this.handleChange} placeholder="Masukkan Keterangan Baru" />
                                 </Col>
                             </Row>
                         </FormGroup>
@@ -87,7 +87,7 @@ class EditComp extends Component {
                         <FormGroup>
                             <Row>
                                 <Col>
-                                    <Button color = "success" type="button" onClick = { () => this.ubahMahasiswa(this.state.id_mahasiswa)}>Update</Button>
+                                    <Button color = "success" type="button" onClick = { () => this.ubahBarang(this.state.id_mahasiswa)}>Update</Button>
                                 </Col>
                             </Row>
                         </FormGroup>
@@ -98,4 +98,4 @@ class EditComp extends Component {
     }
 }
 
-export default EditComp;
+export default EditBarangComp;

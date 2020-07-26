@@ -11,11 +11,11 @@ function HomeComp() {
         <div>
             <Jumbotron>
                 <h1 className="display-3">Hello, {state.user}</h1>
-                <p className="lead">Selamat Datang di KonoSekai, Web ntuk memenuhi Kebutuhan Merchandise Anime Anda</p>
+                <p className="lead">Selamat Datang di KonoSekai, Web untuk memenuhi Kebutuhan Merchandise Anime Anda</p>
                 <Button color="primary">
                     <Link to={
                         {
-                            pathname: `/about`,
+                            pathname: `/barang`,
                         }
                     }>Lanjutkeun
                         </Link>
