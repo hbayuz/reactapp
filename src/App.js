@@ -1,9 +1,8 @@
-import React, { useState, createContext, useReducer } from 'react';
+import React, { useState, createContext, useReducer, Fragment } from 'react';
 import NavbarComp from './Component/Fungsional/NavbarComp';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import HomePage from './Component/Fungsional/HomePage';
 import About from './Component/Fungsional/AboutComp';
-// import DetailComp from './Component/Fungsional/DetailComp';
 import ListComp from './Component/Class/ListComp';
 import TambahComp from './Component/Class/TambahComp';
 import EditComp from './Component/Class/EditComp';
@@ -15,14 +14,61 @@ import ProductComp from './Component/Hooks/Functional/ProductComp';
 import HooksReducer from './Component/Hooks/Functional/HooksReducer';
 import Tagihan from './Component/Hooks/Functional/Tagihan';
 
+//Login
+import MenuComp from './Component/MenuComp';
+import LoginComp from './Component/LoginComp';
+import HomeComp from './Component/HomeComp';
+import RegisterComp from './Component/RegisterComp';
+
+// import DetailComp from './Component/Fungsional/DetailComp';
+
+//Auth Context
+export const AuthContext = createContext()
+
+//Tagihan
 export const keranjangContext = createContext()
 
+//inisiasi state
+const mulaiState = {
+  isAuthenticated: false,
+  user: null,
+  token: null
+}
+
+//State harga
 const initialState = {
   jumlah: 1,
   hargasatuan: 10000,
   hargatotal: 10000
 }
 
+//reducer api
+const reducerapi = (state, action) => {
+  switch (action.type) {
+    case "LOGIN":
+      localStorage.setItem("user", JSON.stringify(action.payload.user))
+      localStorage.setItem("token", JSON.stringify(action.payload.token))
+      return {
+        ...state,
+        isAuthenticated: true,
+        user: action.payload.user,
+        token: action.payload.token
+      }
+
+    case "LOGOUT":
+      localStorage.clear()
+      return {
+        ...state,
+        isAuthenticated: false,
+        user: null
+      }
+    default:
+      return state
+
+  }
+}
+
+//Reducer harga
 const reducer = (state, action) => {
   switch (action.type) {
     case 'tambah': return {
@@ -41,34 +87,60 @@ const reducer = (state, action) => {
 }
 
 
-const App = () => {
+function App() {
+
+  const [state, dispatch] = useReducer(reducerapi, mulaiState)
 
   const [value, setValue] = useState(0)
 
-  const [count, dispatch] = useReducer(reducer, initialState)
+  const [count, dispatch2] = useReducer(reducer, initialState)
 
   return (
     <BrowserRouter>
-      <CartContext.Provider value={{ value, setValue }}>
-        <NavbarComp />
-        <keranjangContext.Provider value={{ keranjangState: count, keranjangDispatch: dispatch }}>
-          <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route exact path="/about" component={About} />
-            <Route exact path="/mahasiswa" component={ListComp} />
-            <Route exact path="/mahasiswa/tambah" component={TambahComp} />
-            <Route exact path="/mahasiswa/edit" component={EditComp} />
-            <Route exact path="/kelas" component={KelasComp} />
-            <Route exact path="/hooks" component={HooksComp} />
-            <Route exact path="/useeffect" component={HooksUseEffect} />
-            <Route exact path="/produk" component={ProductComp} />
-            <Route exact path="/reducer" component={HooksReducer} />
-            <Route exact path="/tagihan" component={Tagihan} />
+      {/* <CartContext.Provider value={{ value, setValue }}> */}
+      {/* <NavbarComp /> */}
+      {/* <keranjangContext.Provider value={{ keranjangState: count, keranjangDispatch: dispatch }}> */}
 
-            {/* <Route exact path="/detail/:id" component={DetailComp} /> */}
-          </Switch>
-        </keranjangContext.Provider>
-      </CartContext.Provider>
+      <Switch>
+        <AuthContext.Provider value={{
+          state,
+          dispatch
+        }}>
+          <MenuComp />
+          {!state.isAuthenticated ?
+            <Redirect
+              to={{
+                pathname: "/"
+              }}
+            /> :
+            <Redirect
+              to={{
+                pathname: "/homepage"
+              }}
+            />
+          }
+
+          <Route exact path="/" component={LoginComp} />
+          <Route exact path="/homepage" component={HomeComp} />
+          <Route exact path="/register" component={RegisterComp} />
+        </AuthContext.Provider>
+        {/* <Route exact path="/" component={HomePage} /> */}
+        <Route exact path="/about" component={About} />
+        <Route exact path="/mahasiswa" component={ListComp} />
+        <Route exact path="/mahasiswa/tambah" component={TambahComp} />
+        <Route exact path="/mahasiswa/edit" component={EditComp} />
+        <Route exact path="/kelas" component={KelasComp} />
+        <Route exact path="/hooks" component={HooksComp} />
+        <Route exact path="/useeffect" component={HooksUseEffect} />
+        <Route exact path="/produk" component={ProductComp} />
+        <Route exact path="/reducer" component={HooksReducer} />
+        <Route exact path="/tagihan" component={Tagihan} />
+
+        {/* <Route exact path="/detail/:id" component={DetailComp} /> */}
+      </Switch>
+      {/* </keranjangContext.Provider> */}
+      {/* </CartContext.Provider> */}
+
     </BrowserRouter>
 
   );
