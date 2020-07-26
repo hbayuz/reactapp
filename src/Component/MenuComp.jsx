@@ -27,7 +27,7 @@ function MenuComp() {
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="mr-auto" navbar>
                         <NavItem>
-                            <NavLink href="/components/">Components</NavLink>
+                            <NavLink href="/homepage">Home</NavLink>
                         </NavItem>
                     </Nav>
                     <NavbarText>

@@ -1,7 +1,6 @@
 import React, { useState, createContext, useReducer, Fragment } from 'react';
 import NavbarComp from './Component/Fungsional/NavbarComp';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-import HomePage from './Component/Fungsional/HomePage';
 import About from './Component/Fungsional/AboutComp';
 import ListComp from './Component/Class/ListComp';
 import TambahComp from './Component/Class/TambahComp';
@@ -19,6 +18,7 @@ import MenuComp from './Component/MenuComp';
 import LoginComp from './Component/LoginComp';
 import HomeComp from './Component/HomeComp';
 import RegisterComp from './Component/RegisterComp';
+import DetailComp from './Component/Fungsional/DetailComp';
 
 // import DetailComp from './Component/Fungsional/DetailComp';
 
@@ -123,9 +123,10 @@ function App() {
           <Route exact path="/" component={LoginComp} />
           <Route exact path="/homepage" component={HomeComp} />
           <Route exact path="/register" component={RegisterComp} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/detail/:id" component={DetailComp} />
         </AuthContext.Provider>
-        {/* <Route exact path="/" component={HomePage} /> */}
-        <Route exact path="/about" component={About} />
+        
         <Route exact path="/mahasiswa" component={ListComp} />
         <Route exact path="/mahasiswa/tambah" component={TambahComp} />
         <Route exact path="/mahasiswa/edit" component={EditComp} />
@@ -136,7 +137,7 @@ function App() {
         <Route exact path="/reducer" component={HooksReducer} />
         <Route exact path="/tagihan" component={Tagihan} />
 
-        {/* <Route exact path="/detail/:id" component={DetailComp} /> */}
+        
       </Switch>
       {/* </keranjangContext.Provider> */}
       {/* </CartContext.Provider> */}

@@ -76,9 +76,9 @@ function LoginComp() {
                     <Col>
                         <CardImg widht="100%" src="http://placeimg.com/640/380/people" />
                     </Col>
-                    
+
                     <Col>
-                        <h1>Login Form</h1>
+                        <h1>Login Disini :3</h1>
                         <hr/>
                         <Form onSubmit={handleFormSubmit}>
                             <FormGroup>
@@ -116,7 +116,7 @@ function LoginComp() {
                             </Button>
                         </Form>
 
-                        <p>Belum Punya Akun? <Link to="/register">Register</Link></p>
+                        <p>Belum Punya Akun? <Link to="/register">Klik Disini!</Link></p>
                     </Col>
                 </Row>
             </Container>
