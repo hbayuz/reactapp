@@ -76,6 +76,7 @@ function LoginComp() {
                     <Col>
                         <CardImg widht="100%" src="http://placeimg.com/640/380/people" />
                     </Col>
+                    
                     <Col>
                         <h1>Login Form</h1>
                         <hr/>
