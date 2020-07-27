@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import axios from 'axios';
 import qs from "querystring";
-import { Container, Col, Row, Form, FormGroup, Alert, Label, Input, Button, } from 'reactstrap';
+import { Container, Col, Form, FormGroup, Label, Input, Button, } from 'reactstrap';
 import { useContext } from 'react';
 import { AuthContext } from '../App';
 import { useState } from 'react';

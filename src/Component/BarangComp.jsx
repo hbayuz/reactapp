@@ -1,9 +1,8 @@
 import React, { PureComponent } from 'react';
 import axios from 'axios';
 import qs from 'querystring';
-import { Table, Button, Container, NavLink, Alert, Row } from 'reactstrap';
+import { Table, Button, Container, Alert } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import ProdukComp from './ProdukComp';
 
 const api = 'http://localhost:3001'
 
@@ -106,15 +105,6 @@ class BarangComp extends PureComponent {
                         )}
                     </tbody>
                 </Table>
-
-                <hr />
-                <h2>Produk</h2>
-                <Row>
-                    <ProdukComp />
-                    <ProdukComp />
-                    <ProdukComp />
-                </Row>
-
             </Container>
         );
     }

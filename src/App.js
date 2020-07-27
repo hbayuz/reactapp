@@ -1,5 +1,4 @@
-import React, { useState, createContext, useReducer, Fragment } from 'react';
-import NavbarComp from './Component/Fungsional/NavbarComp';
+import React, { createContext, useReducer } from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import About from './Component/Fungsional/AboutComp';
 import ListComp from './Component/Class/ListComp';
@@ -8,7 +7,7 @@ import EditComp from './Component/Class/EditComp';
 import KelasComp from './Component/Hooks/Class/KelasComp';
 import HooksComp from './Component/Hooks/Functional/HooksComp';
 import HooksUseEffect from './Component/Hooks/Functional/HooksUseEffect';
-import { CartContext } from './CartContext';
+// import { CartContext } from './CartContext';
 import ProductComp from './Component/Hooks/Functional/ProductComp';
 import HooksReducer from './Component/Hooks/Functional/HooksReducer';
 import Tagihan from './Component/Hooks/Functional/Tagihan';
@@ -18,7 +17,7 @@ import MenuComp from './Component/MenuComp';
 import LoginComp from './Component/LoginComp';
 import HomeComp from './Component/HomeComp';
 import RegisterComp from './Component/RegisterComp';
-import DetailComp from './Component/Fungsional/DetailComp';
+// import DetailComp from './Component/Fungsional/DetailComp';
 import BarangComp from './Component/BarangComp';
 import EditBarangComp from './Component/EditBarangComp';
 import TambahBarangComp from './Component/TambahBarangComp';
@@ -39,11 +38,11 @@ const mulaiState = {
 }
 
 //State harga
-const initialState = {
-  jumlah: 1,
-  hargasatuan: 10000,
-  hargatotal: 10000
-}
+// const initialState = {
+//   jumlah: 1,
+//   hargasatuan: 10000,
+//   hargatotal: 10000
+// }
 
 //reducer api
 const reducerapi = (state, action) => {
@@ -72,31 +71,31 @@ const reducerapi = (state, action) => {
 }
 
 //Reducer harga
-const reducer = (state, action) => {
-  switch (action.type) {
-    case 'tambah': return {
-      ...state,
-      jumlah: state.jumlah + 1,
-      hargatotal: state.hargasatuan + (state.hargasatuan * state.jumlah)
-    }
-    case 'kurang': return {
-      ...state,
-      jumlah: state.jumlah - 1,
-      hargatotal: (state.hargasatuan * state.jumlah) - state.hargasatuan
-    }
-    default:
-      return state
-  }
-}
+// const reducer = (state, action) => {
+//   switch (action.type) {
+//     case 'tambah': return {
+//       ...state,
+//       jumlah: state.jumlah + 1,
+//       hargatotal: state.hargasatuan + (state.hargasatuan * state.jumlah)
+//     }
+//     case 'kurang': return {
+//       ...state,
+//       jumlah: state.jumlah - 1,
+//       hargatotal: (state.hargasatuan * state.jumlah) - state.hargasatuan
+//     }
+//     default:
+//       return state
+//   }
+// }
 
 
 function App() {
 
   const [state, dispatch] = useReducer(reducerapi, mulaiState)
 
-  const [value, setValue] = useState(0)
+  // const [value, setValue] = useState(0)
 
-  const [count, dispatch2] = useReducer(reducer, initialState)
+  // const [count, dispatch2] = useReducer(reducer, initialState)
 
   return (
     <BrowserRouter>
@@ -131,7 +130,7 @@ function App() {
           <Route exact path="/barang/tambah" component={TambahBarangComp} />
           <Route exact path="/barang/edit" component={EditBarangComp} />
         </AuthContext.Provider>
-        
+
         <Route exact path="/mahasiswa" component={ListComp} />
         <Route exact path="/mahasiswa/tambah" component={TambahComp} />
         <Route exact path="/mahasiswa/edit" component={EditComp} />
@@ -142,7 +141,7 @@ function App() {
         <Route exact path="/reducer" component={HooksReducer} />
         <Route exact path="/tagihan" component={Tagihan} />
 
-        
+
       </Switch>
       {/* </keranjangContext.Provider> */}
       {/* </CartContext.Provider> */}
