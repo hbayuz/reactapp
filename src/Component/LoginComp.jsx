@@ -78,7 +78,7 @@ function LoginComp() {
                     </Col>
 
                     <Col>
-                        <h1>Login Disini :3</h1>
+                        <h1 align = "center">Login Disini :3</h1>
                         <hr/>
                         <Form onSubmit={handleFormSubmit}>
                             <FormGroup>
@@ -105,7 +105,7 @@ function LoginComp() {
                                 </div>
                             )}
 
-                            <Button disabled={data.isSubmitting}>
+                            <Button disabled={data.isSubmitting} color = "primary">
                                 {data.isSubmitting ? (
                                     "..Loading"
                                 ) :

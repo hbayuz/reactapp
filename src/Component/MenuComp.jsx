@@ -22,7 +22,7 @@ function MenuComp() {
     return (
         <div>
             <Navbar className="navbar-dark bg-dark" expand="md">
-                <NavbarBrand href="/">KonoSekai</NavbarBrand>
+                <NavbarBrand href="/">KS</NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="mr-auto" navbar>

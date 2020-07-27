@@ -1,26 +1,29 @@
 import React, { Fragment } from 'react';
-import { Jumbotron, Button } from 'reactstrap';
+import { Jumbotron, Button, Container } from 'reactstrap';
 import { useContext } from 'react';
 import { AuthContext } from '../App';
 import { Link } from 'react-router-dom';
 
 function HomeComp() {
-    const { state, dispatch } = useContext(AuthContext)
+    const { state } = useContext(AuthContext)
 
     return (
         <div>
-            <Jumbotron>
-                <h1 className="display-3">Hello, {state.user}</h1>
-                <p className="lead">Selamat Datang di KonoSekai, Web untuk memenuhi Kebutuhan Merchandise Anime Anda</p>
-                <Button color="primary">
-                    <Link to={
-                        {
-                            pathname: `/barang`,
-                        }
-                    }>Lanjutkeun
-                        </Link>
-                </Button>
+            <Jumbotron fluid>
+                <Container fluid>
+                    <h1 className="display-3" align = "center">Hello, {state.user}</h1>
+                    <p className="lead" align = "center">Selamat Datang di KonoSekai, Web untuk memenuhi Kebutuhan Merchandise Anime Anda</p>
+                    <Button color="primary">
+                        <Link to={
+                            {
+                                pathname: `/barang`,
+                            }
+                        }> |||
+                        </Link> Lanjut
+                    </Button>
+                </Container>
             </Jumbotron>
+            
         </div>
     );
 }

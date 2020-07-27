@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react';
 import axios from 'axios';
 import qs from 'querystring';
-import { Table, Button, Container, NavLink, Alert } from 'reactstrap';
+import { Table, Button, Container, NavLink, Alert, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import ProdukComp from './ProdukComp';
 
 const api = 'http://localhost:3001'
 
@@ -26,7 +27,7 @@ class BarangComp extends PureComponent {
     }
 
     Deletebarang = (idbarang) => {
-        const {barang} = this.state
+        const { barang } = this.state
         const data = qs.stringify({
             id_barang: idbarang
         })
@@ -34,17 +35,17 @@ class BarangComp extends PureComponent {
         axios.delete(api + '/hapusbarang',
             {
                 data: data,
-                headers: {'Content-type': 'application/x-www-form-urlencoded'}
+                headers: { 'Content-type': 'application/x-www-form-urlencoded' }
             }
-        ).then(json=>{
-            if(json.data.status === 200){
+        ).then(json => {
+            if (json.data.status === 200) {
                 this.setState({
                     response: json.data.values,
                     barang: barang.filter(barang => barang.id_barang !== idbarang),
                     display: 'block'
                 })
                 this.props.history.push('/barang')
-            }else {
+            } else {
                 this.setState({
                     response: json.data.values,
                     display: 'block'
@@ -57,7 +58,7 @@ class BarangComp extends PureComponent {
         return (
             <Container>
                 <h2>Data Barang</h2>
-                <Alert color = "success" style = {{display : this.state.display}}>
+                <Alert color="success" style={{ display: this.state.display }}>
                     {this.state.response}
                 </Alert>
                 <NavLink href="/barang/tambah"><Button color="success">Tambah Data</Button></NavLink>
@@ -95,12 +96,22 @@ class BarangComp extends PureComponent {
                                     </Link>
 
                                     <span> </span>
-                                        <Button onClick={()=>this.Deletebarang (barang.id_barang)} color="danger"> Hapus </Button>
+
+                                    <Button onClick={() => this.Deletebarang(barang.id_barang)} color="danger"> Hapus </Button>
                                 </td>
                             </tr>
                         )}
                     </tbody>
                 </Table>
+
+                <hr/>
+                <h2>Produk</h2>
+                <Row>
+                    <ProdukComp/>
+                    <ProdukComp/>
+                    <ProdukComp/>
+                </Row>
+
             </Container>
         );
     }
