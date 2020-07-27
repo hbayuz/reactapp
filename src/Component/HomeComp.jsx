@@ -13,13 +13,13 @@ function HomeComp() {
                 <Container fluid>
                     <h1 className="display-3" align = "center">Hello, {state.user}</h1>
                     <p className="lead" align = "center">Selamat Datang di KonoSekai, Web untuk memenuhi Kebutuhan Merchandise Anime Anda</p>
-                    <Button color="primary">
+                    <Button outline color="primary">
                         <Link to={
                             {
                                 pathname: `/barang`,
                             }
-                        }> |||
-                        </Link> Lanjut
+                        }> Lanjut
+                        </Link>
                     </Button>
                 </Container>
             </Jumbotron>
