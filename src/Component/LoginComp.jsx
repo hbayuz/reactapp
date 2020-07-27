@@ -2,7 +2,7 @@ import React, { useState, Fragment } from 'react';
 import axios from 'axios'
 import { useContext } from 'react';
 import { AuthContext } from '../App';
-import { Button, Form, FormGroup, Label, Input, FormText, Container, Row, Col, CardImg } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Container, Row, Col, CardImg } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 const qs = require('querystring')

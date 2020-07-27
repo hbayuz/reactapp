@@ -13,8 +13,8 @@ function TambahBarangComp() {
     const { dispatch } = useContext(AuthContext)
 
     const initialState = {
-        nama: "",
-        harga: "",
+        nama_barang: "",
+        harga_barang: "",
         keterangan: "",
         isSubmitting: false,
         errorMessage: null,
@@ -38,9 +38,9 @@ function TambahBarangComp() {
         })
 
         const requestBody = {
-            nama: data.nama_barang,
-            harga: data.harga_barang,
-            keterangan: data.keternagan,
+            nama_barang: data.nama,
+            harga_barang: data.harga,
+            keterangan: data.keterangan,
         }
 
         const config = {
@@ -100,7 +100,7 @@ function TambahBarangComp() {
                             <Input type="text"
                                 value={data.keterangan}
                                 onChange={handleInputChange}
-                                name="password" id="examplePassword"
+                                name="keterangan" id="exampleKeterangan"
                                 placeholder="" />
                         </FormGroup>
 

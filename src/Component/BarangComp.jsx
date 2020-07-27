@@ -61,7 +61,10 @@ class BarangComp extends PureComponent {
                 <Alert color="success" style={{ display: this.state.display }}>
                     {this.state.response}
                 </Alert>
-                <NavLink href="/barang/tambah"><Button color="success">Tambah Data</Button></NavLink>
+                <Button color="success">
+                    <Link to="/barang/tambah">
+                        |||
+                    </Link>Tambah Data</Button>
                 <hr />
 
                 <Table className="table-bordered">
@@ -104,12 +107,12 @@ class BarangComp extends PureComponent {
                     </tbody>
                 </Table>
 
-                <hr/>
+                <hr />
                 <h2>Produk</h2>
                 <Row>
-                    <ProdukComp/>
-                    <ProdukComp/>
-                    <ProdukComp/>
+                    <ProdukComp />
+                    <ProdukComp />
+                    <ProdukComp />
                 </Row>
 
             </Container>
