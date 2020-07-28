@@ -5,6 +5,7 @@ import { Container, Col, Row, Form, FormGroup, Alert, Label, Input, Button, } fr
 import { useContext } from 'react';
 import { AuthContext } from '../App';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const api = 'http://localhost:3001'
 
@@ -130,6 +131,14 @@ function RegisterComp() {
                                 )
                             }
                         </Button>
+                        <Button outline color="primary">
+                        <Link to={
+                            {
+                                pathname: `/`,
+                            }
+                        }> Login
+                        </Link>
+                    </Button>
                     </Form>
                 </Col>
             </Container>

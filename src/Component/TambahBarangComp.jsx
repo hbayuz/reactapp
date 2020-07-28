@@ -5,6 +5,7 @@ import { Container, Col, Form, FormGroup, Label, Input, Button, } from 'reactstr
 import { useContext } from 'react';
 import { AuthContext } from '../App';
 import { useState } from 'react';
+import { Link } from 'react-router-dom'
 
 const api = 'http://localhost:3001'
 
@@ -114,10 +115,18 @@ function TambahBarangComp() {
                             {data.isSubmitting ? (
                                 "..Loading"
                             ) :
-                                ( 
+                                (
                                     "Submit"
                                 )
                             }
+                        </Button>
+                        <Button outline color="primary">
+                            <Link to={
+                                {
+                                    pathname: `/barang`,
+                                }
+                            }> Kembali
+                        </Link>
                         </Button>
                     </Form>
                 </Col>

@@ -60,10 +60,11 @@ class BarangComp extends PureComponent {
                 <Alert color="success" style={{ display: this.state.display }}>
                     {this.state.response}
                 </Alert>
-                <Button color="success">
+                <Button outline color="success">
                     <Link to="/barang/tambah">
-                        |||
-                    </Link>Tambah Data</Button>
+                        Tambah Data
+                    </Link>
+                </Button>
                 <hr />
 
                 <Table className="table-bordered">
