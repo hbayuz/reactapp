@@ -2,7 +2,7 @@ import React, { useState, Fragment } from 'react';
 import axios from 'axios'
 import { useContext } from 'react';
 import { AuthContext } from '../App';
-import { Button, Form, FormGroup, Label, Input, Container, Row, Col, CardImg } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Container, Row, Col } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 const qs = require('querystring')
@@ -74,11 +74,7 @@ function LoginComp() {
                 <br />
                 <Row>
                     <Col>
-                        <CardImg widht="100%" src="http://placeimg.com/640/380/people" />
-                    </Col>
-
-                    <Col>
-                        <h1 align = "center">Login Disini :3</h1>
+                        <h1 align = "center">Login Disini</h1>
                         <hr/>
                         <Form onSubmit={handleFormSubmit}>
                             <FormGroup>
